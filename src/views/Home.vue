@@ -1,22 +1,84 @@
 <template>
   <div class="home">
   <div class="middle">
-    <span class="Month">
-     <div>Till Month End</div>
-    </span>
-    <span class="Quarter">
-     <div>Till Quarter End</div>
-    </span>
-    <span class="Year">
-     <div>Till Year End</div>
-    </span>
+    <div class="Month">
+     <div class="title">TILL MONTH END</div>
+     <div class="timer">
+       <span>
+         <div class="card">10</div>
+       </span>
+       <span>
+         <div class="card">10</div>
+       </span>
+       <span>
+         <div class="card">10</div>
+       </span>
+       <span>
+         <div class="card">10</div>
+       </span>
+     </div>
+     <div class="unit">
+       <span>DAYS</span>
+       <span>HOURS</span>
+       <span>MINUTES</span>
+       <span>SECONDS</span>
+     </div>
+    </div>
+    <div class="Quarter">
+     <div class="title">TILL QUARTER END</div>
+     <div class="timer">
+       <span>
+         <div class="card">10</div>
+       </span>
+       <span>
+         <div class="card">10</div>
+       </span>
+       <span>
+         <div class="card">10</div>
+       </span>
+       <span>
+         <div class="card">10</div>
+       </span>
+     </div>
+     <div class="unit">
+       <span>DAYS</span>
+       <span>HOURS</span>
+       <span>MINUTES</span>
+       <span>SECONDS</span>
+     </div>
+    </div>
+    <div class="Year">
+     <div class="title">TILL YEAR END</div>
+     <div class="timer">
+       <span>
+         <div class="card">10</div>
+       </span>
+       <span>
+         <div class="card">10</div>
+       </span>
+       <span>
+         <div class="card">10</div>
+       </span>
+       <span>
+         <div class="card">10</div>
+       </span>
+     </div>
+     <div class="unit">
+       <span>DAYS</span>
+       <span>HOURS</span>
+       <span>MINUTES</span>
+       <span>SECONDS</span>
+     </div>
+    </div>
   </div>
   </div>
+  
 </template>
 
 <script>
 // @ is an alias to /src
 
+// Vue.component(VueCountdown.name, VueCountdown);
 
 export default {
   name: 'Home',
@@ -29,22 +91,60 @@ export default {
 <style scoped>
 .middle{
   position: fixed;
-  margin-top: 40vh;
+  margin-top: 25vh;
   margin-left: 12.5vw;
   width: 75vw;
   height: 20vh;
 }
-.middle span{
+.Month,.Quarter,.Year{
   display: inline-block;
   width: 25vw;
   text-align: center;
+  font-size: 1.7vw;
   color: red;
 }
-.middle div{
+.title{
   margin-left: 5vw;
-  width: 15vw;
+  width: 20vw;
   border-radius: 10px;
+  /* background-color: black; */
+  background: rgba(0, 0, 0, .8)
+}
+.timer{
+  margin-left: 5vw;
+  margin-top: -1vh;
+  width: 20vw;
+  height: 5vh;
+  /* background-color: black; */
+  background: rgba(0, 0, 0, .6)
+}
+.timer span{
+  display: inline-block;
+  width: 5vw;
+  margin-top: 2vh;
+  text-align: center;
+  /* margin-left: 0.25vw;
+  margin-right: 0.25vw; */
+}
+.unit{
+  margin-left: 5vw;
+  width: 20vw;
+  height: 5vh;
+  /* background-color: black; */
+  background: rgba(0, 0, 0, .6);
+  font-size: 0.8vw;
+}
+.unit span{
+  display: inline-block;
+  width: 5vw; 
+  margin-top: 2vh;
+  text-align: center;
+}
+.card{
+  height: 5vh;
+  width: 3vw;
+  line-height: 5vh;
+  margin-left: 1vw;
   background-color: black;
 }
-
 </style>
