@@ -136,9 +136,12 @@ export default {
 }
 .unit span{
   display: inline-block;
-  width: 5vw; 
+  width: 4vw; 
   margin-top: 2vh;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
   text-align: center;
+  background: rgba(0, 0, 0, .6);
 }
 .card{
   height: 5vh;
