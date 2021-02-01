@@ -71,9 +71,9 @@
      </div>
     </div>
   </div>
-  <footer @click="configclick">
+  <div class="config" @click="configclick">
     Configuration
-  </footer>
+  </div>
   </div>
   
 </template>
@@ -93,7 +93,7 @@ export default {
   },
   methods:{
     configclick(){
-      this.$router.replace(this.path)
+      this.$router.replace('./config')
     }
   }
 }
@@ -164,10 +164,10 @@ export default {
   margin-left: 1vw;
   background-color: black;
 }
-footer{
+.config{
   color: aliceblue;
   position: absolute;
   right:3vw;
-
+  cursor: pointer;
 }
 </style>
