@@ -71,6 +71,9 @@
      </div>
     </div>
   </div>
+  <footer @click="configclick">
+    Configuration
+  </footer>
   </div>
   
 </template>
@@ -84,6 +87,14 @@ export default {
   name: 'Home',
   components: {
     
+  },
+  props:{
+    path: String
+  },
+  methods:{
+    configclick(){
+      this.$router.replace(this.path)
+    }
   }
 }
 </script>
@@ -107,8 +118,10 @@ export default {
   margin-left: 5vw;
   width: 20vw;
   border-radius: 10px;
+  font-weight:bold;
   /* background-color: black; */
-  background: rgba(0, 0, 0, .8)
+  background: rgba(0, 0, 0, .8);
+  color: rgb(243, 77, 77);
 }
 .timer{
   margin-left: 5vw;
@@ -133,6 +146,7 @@ export default {
   /* background-color: black; */
   background: rgba(0, 0, 0, .6);
   font-size: 0.8vw;
+  color: rgb(243, 77, 77);
 }
 .unit span{
   display: inline-block;
@@ -149,5 +163,11 @@ export default {
   line-height: 5vh;
   margin-left: 1vw;
   background-color: black;
+}
+footer{
+  color: aliceblue;
+  position: absolute;
+  right:3vw;
+
 }
 </style>
