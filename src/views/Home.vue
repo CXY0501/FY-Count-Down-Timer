@@ -6,8 +6,8 @@
      <div class="timer">
          <div class="card1">
            <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
-            :dayTxt="'  '" :hourTxt="'  '" :minutesTxt="'  '" :secondsTxt="'  '"           
-            :currentTime="1481450106" :startTime="1481450110" :endTime="1482450115"></count-down>
+            :dayTxt="'   '" :hourTxt="'   '" :minutesTxt="'   '" :secondsTxt="'  '"           
+             :startTime="1612108800" :endTime="1614528000"></count-down>
          </div>
      </div>
      <div class="unit">
@@ -20,18 +20,11 @@
     <div class="Quarter">
      <div class="title">QUARTER END</div>
      <div class="timer">
-       <span>
-         <div class="card">10</div>
-       </span>
-       <span>
-         <div class="card">10</div>
-       </span>
-       <span>
-         <div class="card">10</div>
-       </span>
-       <span>
-         <div class="card">10</div>
-       </span>
+       <div class="card1">
+         <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
+            :dayTxt="'   '" :hourTxt="'   '" :minutesTxt="'   '" :secondsTxt="'  '"           
+             :startTime="1612108800" :endTime="1617206400"></count-down>
+       </div>
      </div>
      <div class="unit">
        <span>DAYS</span>
@@ -43,18 +36,11 @@
     <div class="Year">
      <div class="title">FISCAL YEAR END</div>
      <div class="timer">
-       <span>
-         <div class="card">10</div>
-       </span>
-       <span>
-         <div class="card">10</div>
-       </span>
-       <span>
-         <div class="card">10</div>
-       </span>
-       <span>
-         <div class="card">10</div>
-       </span>
+       <div class="card1">
+           <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
+            :dayTxt="'   '" :hourTxt="'   '" :minutesTxt="'   '" :secondsTxt="'  '"           
+             :startTime="1612108800" :endTime="1625068800"></count-down>
+       </div>
      </div>
      <div class="unit">
        <span>DAYS</span>
@@ -155,8 +141,8 @@ export default {
   display: inline-block;
   width: 4vw; 
   margin-top: 2vh;
-  margin-left: 0.5vw;
-  margin-right: 0.5vw;
+  margin-left: 0.22vw;
+  margin-right: 0.22vw;
   text-align: center;
   background: rgba(0, 0, 0, .6);
 }
@@ -177,6 +163,10 @@ export default {
   color: aliceblue;
 }
 .card1{
-  font-size: 1vw;
+  font-size: 3.2vw;
+  font-weight: bolder;
+}
+.card1 p{
+  margin: 0;
 }
 </style>
