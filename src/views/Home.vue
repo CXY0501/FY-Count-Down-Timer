@@ -2,20 +2,13 @@
   <div class="home">
   <div class="middle">
     <div class="Month">
-     <div class="title">TILL MONTH END</div>
+     <div class="title">MONTH END</div>
      <div class="timer">
-       <span>
-         <div class="card">10</div>
-       </span>
-       <span>
-         <div class="card">10</div>
-       </span>
-       <span>
-         <div class="card">10</div>
-       </span>
-       <span>
-         <div class="card">10</div>
-       </span>
+         <div class="card1">
+           <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
+            :dayTxt="'  '" :hourTxt="'  '" :minutesTxt="'  '" :secondsTxt="'  '"           
+            :currentTime="1481450106" :startTime="1481450110" :endTime="1482450115"></count-down>
+         </div>
      </div>
      <div class="unit">
        <span>DAYS</span>
@@ -25,7 +18,7 @@
      </div>
     </div>
     <div class="Quarter">
-     <div class="title">TILL QUARTER END</div>
+     <div class="title">QUARTER END</div>
      <div class="timer">
        <span>
          <div class="card">10</div>
@@ -48,7 +41,7 @@
      </div>
     </div>
     <div class="Year">
-     <div class="title">TILL YEAR END</div>
+     <div class="title">FISCAL YEAR END</div>
      <div class="timer">
        <span>
          <div class="card">10</div>
@@ -74,24 +67,34 @@
   <div class="config" @click="configclick">
     Configuration
   </div>
+  <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
+  :currentTime="1481450106" :startTime="1481450110" :endTime="1482450115" 
+  :tipText="'距离开始文字1'" :tipTextEnd="'距离结束文字1'" :endText="'结束自定义文字2'" 
+  :dayTxt="'天'" :hourTxt="'小时'" :minutesTxt="'分钟'" :secondsTxt="'秒'"></count-down>
   </div>
-  
 </template>
 
 <script>
 // @ is an alias to /src
 
 // Vue.component(VueCountdown.name, VueCountdown);
+import CountDown from 'vue2-countdown'
 
 export default {
   name: 'Home',
   components: {
-    
+    CountDown
   },
   props:{
     path: String
   },
   methods:{
+    countDownS_sb(x){
+      console.log(x)
+    },
+    countDownS_cb(x){
+      console.log(x)
+    },
     configclick(){
       this.$router.replace('./config')
     }
@@ -169,5 +172,11 @@ export default {
   position: absolute;
   right:3vw;
   cursor: pointer;
+}
+.number{
+  color: aliceblue;
+}
+.card1{
+  font-size: 1vw;
 }
 </style>
