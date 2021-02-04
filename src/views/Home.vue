@@ -7,7 +7,7 @@
          <div class="card1">
            <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
             :dayTxt="'   '" :hourTxt="'   '" :minutesTxt="'   '" :secondsTxt="'  '"           
-             :startTime="1612108800" :endTime="1614528000"></count-down>
+             :startTime="startTime" :endTime="endTime1"></count-down>
          </div>
      </div>
      <div class="unit">
@@ -23,7 +23,7 @@
        <div class="card1">
          <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
             :dayTxt="'   '" :hourTxt="'   '" :minutesTxt="'   '" :secondsTxt="'  '"           
-             :startTime="1612108800" :endTime="1617206400"></count-down>
+             :startTime="startTime" :endTime="endTime2"></count-down>
        </div>
      </div>
      <div class="unit">
@@ -39,7 +39,7 @@
        <div class="card1">
            <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
             :dayTxt="'   '" :hourTxt="'   '" :minutesTxt="'   '" :secondsTxt="'  '"           
-             :startTime="1612108800" :endTime="1625068800"></count-down>
+             :startTime="startTime" :endTime="endTime3"></count-down>
        </div>
      </div>
      <div class="unit">
@@ -66,6 +66,14 @@ export default {
   name: 'Home',
   components: {
     CountDown
+  },
+  data(){
+    return{
+      startTime: (new Date()).getTime(),
+      endTime1: 1614528000,
+      endTime2: 1617206400,
+      endTime3: 1625068800
+    }
   },
   props:{
     path: String
