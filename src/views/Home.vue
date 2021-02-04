@@ -70,9 +70,9 @@ export default {
   data(){
     return{
       startTime: (new Date()).getTime(),
-      endTime1: 1614528000,
-      endTime2: 1617206400,
-      endTime3: 1625068800
+      endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
+      endTime2: (new Date('2021-04-01 00:00:00')).getTime(),
+      endTime3: (new Date('2021-07-01 00:00:00')).getTime()
     }
   },
   props:{
