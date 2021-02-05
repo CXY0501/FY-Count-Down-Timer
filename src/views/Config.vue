@@ -6,13 +6,13 @@
     <div class="configtable">
     <table>
       <th>1st day of next month</th>
-      <tr><input type="date"></tr>
+      <tr><input type="date" v-model="nextMonth"></tr>
        <th>1st day of next quarter</th>
-      <tr><input type="date"></tr>
+      <tr><input type="date" v-model="nextQuarter"></tr>
        <th>1st day of next FY</th>
-      <tr><input type="date"></tr>
+      <tr><input type="date" v-model="nextFY"></tr>
     </table>
-    <button>Submit</button>
+    <button @click="submit">Submit</button>
     </div>
 
   </div>
@@ -25,6 +25,13 @@
 
 export default {
   name: 'Config',
+  data(){
+    return{
+      nextMonth:'',
+      nextQuarter:'',
+      nextFY:''
+    }
+  },
   components: {
     
   },
@@ -34,6 +41,11 @@ export default {
   methods:{
     homeclick(){
       this.$router.replace('./')
+    },
+    submit(){
+      console.log(this.nextMonth)
+      console.log(this.nextQuarter)
+      console.log(this.nextFY)
     }
   }
 }
@@ -52,7 +64,7 @@ export default {
   height: 30vh;
   position:fixed;
   left:70vw;
-  top:10vh;
+  /* top:10vh; */
   color:#fff
 }
 table{
