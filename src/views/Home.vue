@@ -6,7 +6,7 @@
      <div class="timer">
          <div class="card1">
            <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
-            :dayTxt="'   '" :hourTxt="'   '" :minutesTxt="'   '" :secondsTxt="'  '"           
+            :dayTxt="' '" :hourTxt="':'" :minutesTxt="':'" :secondsTxt="'  '"           
              :startTime="startTime" :endTime="endTime1"></count-down>
          </div>
      </div>
@@ -22,7 +22,7 @@
      <div class="timer">
        <div class="card1">
          <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
-            :dayTxt="'   '" :hourTxt="'   '" :minutesTxt="'   '" :secondsTxt="'  '"           
+            :dayTxt="' '" :hourTxt="':'" :minutesTxt="':'" :secondsTxt="'  '"           
              :startTime="startTime" :endTime="endTime2"></count-down>
        </div>
      </div>
@@ -38,7 +38,7 @@
      <div class="timer">
        <div class="card1">
            <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
-            :dayTxt="'   '" :hourTxt="'   '" :minutesTxt="'   '" :secondsTxt="'  '"           
+            :dayTxt="' '" :hourTxt="':'" :minutesTxt="':'" :secondsTxt="'  '"           
              :startTime="startTime" :endTime="endTime3"></count-down>
        </div>
      </div>
@@ -168,8 +168,9 @@ export default {
   color: aliceblue;
 }
 .card1{
-  font-size: 3.2vw;
+  font-size: 3vw;
   font-weight: bolder;
+  font-style: normal;
 }
 
 </style>
