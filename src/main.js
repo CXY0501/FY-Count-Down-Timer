@@ -6,8 +6,11 @@ import VueCountdown from '@chenfengyuan/vue-countdown';
 
 Vue.config.productionTip = false
 
+Vue.prototype.$bus = new Vue();
+
 new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
+

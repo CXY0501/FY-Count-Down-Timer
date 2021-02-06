@@ -53,6 +53,7 @@
   <div class="config" @click="configclick">
     Configuration
   </div>
+  <div>{{NextMonth}}</div>
   </div>
 </template>
 
@@ -72,7 +73,8 @@ export default {
       startTime: (new Date()).getTime(),
       endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
       endTime2: (new Date('2021-04-01 00:00:00')).getTime(),
-      endTime3: (new Date('2021-07-01 00:00:00')).getTime()
+      endTime3: (new Date('2021-07-01 00:00:00')).getTime(),
+      NextMonth: '1111111111'
     }
   },
   props:{
@@ -80,14 +82,23 @@ export default {
   },
   methods:{
     countDownS_sb(x){
-      console.log(x)
+      // console.log(x)
     },
     countDownS_cb(x){
-      console.log(x)
+      // console.log(x)
     },
     configclick(){
       this.$router.replace('./config')
     }
+  },
+  mounted(){
+    //  var that=this
+     this.$bus.$on('nextMonth',(data)=>{
+      // console.log(data)
+      this.NextMonth = data
+      console.log('received')
+      console.log(this.NextMonth)
+    })
   }
 }
 </script>

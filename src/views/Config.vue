@@ -43,9 +43,12 @@ export default {
       this.$router.replace('./')
     },
     submit(){
-      console.log(this.nextMonth)
-      console.log(this.nextQuarter)
-      console.log(this.nextFY)
+      this.$bus.$emit('nextMonth',this.nextMonth)
+      // console.log(this.nextMonth)
+      // console.log(this.nextQuarter)
+      // console.log(this.nextFY)
+      // this.$router.push({
+      //  path:'./'})
     }
   }
 }
