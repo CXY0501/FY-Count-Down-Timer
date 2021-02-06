@@ -47,8 +47,8 @@ export default {
       // console.log(this.nextMonth)
       // console.log(this.nextQuarter)
       // console.log(this.nextFY)
-      // this.$router.push({
-      //  path:'./'})
+      this.$router.push({
+       path:'./'})
     }
   }
 }

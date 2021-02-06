@@ -74,7 +74,7 @@ export default {
       endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
       endTime2: (new Date('2021-04-01 00:00:00')).getTime(),
       endTime3: (new Date('2021-07-01 00:00:00')).getTime(),
-      NextMonth: '1111111111'
+      NextMonth: ''
     }
   },
   props:{
@@ -93,12 +93,17 @@ export default {
   },
   mounted(){
     //  var that=this
+    this.$nextTick(() => {
      this.$bus.$on('nextMonth',(data)=>{
       // console.log(data)
-      this.NextMonth = data
-      console.log('received')
+        this.NextMonth = data
       console.log(this.NextMonth)
     })
+  })
+  },
+  updated(){
+    console.log('--------')
+    console.log(this.NextMonth)
   }
 }
 </script>
