@@ -92,19 +92,11 @@ export default {
     }
   },
   mounted(){
-    //  var that=this
-    this.$nextTick(() => {
      this.$bus.$on('nextMonth',(data)=>{
-      // console.log(data)
         this.NextMonth = data
       console.log(this.NextMonth)
-    })
   })
   },
-  updated(){
-    console.log('--------')
-    console.log(this.NextMonth)
-  }
 }
 </script>
 
