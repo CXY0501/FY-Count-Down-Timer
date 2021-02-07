@@ -53,7 +53,6 @@
   <div class="config" @click="configclick">
     Configuration
   </div>
-  <div>{{NextMonth}}</div>
   </div>
 </template>
 
@@ -71,10 +70,10 @@ export default {
   data(){
     return{
       startTime: (new Date()).getTime(),
-      endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
+      endTime1: (new Date('2021-12-31 00:00:00')).getTime(),
       endTime2: (new Date('2021-04-01 00:00:00')).getTime(),
       endTime3: (new Date('2021-07-01 00:00:00')).getTime(),
-      NextMonth: ''
+      NextMonth: '2021-03-01'
     }
   },
   props:{
@@ -94,6 +93,7 @@ export default {
   mounted(){
      this.$bus.$on('nextMonth',(data)=>{
         this.NextMonth = data
+        this.endTime1 = (new Date(this.NextMonth+' 00:00:00')).getTime()
       console.log(this.NextMonth)
   })
   },
