@@ -94,9 +94,16 @@ export default {
      this.$bus.$on('nextMonth',(data)=>{
         this.NextMonth = data
         this.endTime1 = (new Date(this.NextMonth+' 00:00:00')).getTime()
+        
       console.log(this.NextMonth)
-  })
+  }),
+  this.$forceUpdate();
   },
+  watch:{
+    change(){
+      // this.endTime1 = (new Date(this.NextMonth+' 00:00:00')).getTime()
+    }
+  }
 }
 </script>
 
