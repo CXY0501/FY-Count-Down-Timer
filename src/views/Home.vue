@@ -6,48 +6,48 @@
      <div class="timer">
          <div class="card1">
            <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
-            :dayTxt="' '" :hourTxt="':'" :minutesTxt="':'" :secondsTxt="'  '"           
+            :dayTxt="' DAYS '" :hourTxt="' HOURS '" :minutesTxt="' MINUTES '" :secondsTxt="' SECONDS'"           
              :startTime="startTime" :endTime="endTime1"></count-down>
          </div>
      </div>
-     <div class="unit">
+     <!-- <div class="unit">
        <span>DAYS</span>
        <span>HOURS</span>
        <span>MINUTES</span>
        <span>SECONDS</span>
-     </div>
+     </div> -->
     </div>
     <div class="Quarter">
      <div class="title">QUARTER END</div>
      <div class="timer">
        <div class="card1">
          <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
-            :dayTxt="' '" :hourTxt="':'" :minutesTxt="':'" :secondsTxt="'  '"           
+            :dayTxt="' DAYS '" :hourTxt="' HOURS '" :minutesTxt="' MINUTES '" :secondsTxt="' SECONDS'"         
              :startTime="startTime" :endTime="endTime2"></count-down>
        </div>
      </div>
-     <div class="unit">
+     <!-- <div class="unit">
        <span>DAYS</span>
        <span>HOURS</span>
        <span>MINUTES</span>
        <span>SECONDS</span>
-     </div>
+     </div> -->
     </div>
     <div class="Year">
      <div class="title">FISCAL YEAR END</div>
      <div class="timer">
        <div class="card1">
            <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
-            :dayTxt="' '" :hourTxt="':'" :minutesTxt="':'" :secondsTxt="'  '"           
+            :dayTxt="' DAYS '" :hourTxt="' HOURS '" :minutesTxt="' MINUTES '" :secondsTxt="' SECONDS'"           
              :startTime="startTime" :endTime="endTime3"></count-down>
        </div>
      </div>
-     <div class="unit">
+     <!-- <div class="unit">
        <span>DAYS</span>
        <span>HOURS</span>
        <span>MINUTES</span>
        <span>SECONDS</span>
-     </div>
+     </div> -->
     </div>
   </div>
   <div class="config" @click="configclick">
@@ -70,7 +70,7 @@ export default {
   data(){
     return{
       startTime: (new Date()).getTime(),
-      endTime1: (new Date('2021-12-31 00:00:00')).getTime(),
+      endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
       endTime2: (new Date('2021-04-01 00:00:00')).getTime(),
       endTime3: (new Date('2021-07-01 00:00:00')).getTime(),
       NextMonth: '2021-03-01'
@@ -113,32 +113,32 @@ export default {
   margin-top: 25vh;
   margin-left: 12.5vw;
   width: 75vw;
-  height: 20vh;
+  /* height: 20vh; */
 }
 .Month,.Quarter,.Year{
-  display: inline-block;
-  width: 25vw;
+  /* display: inline-block; */
+  /* width: 25vw; */
   text-align: center;
   font-size: 1.7vw;
   color: red;
 }
 .title{
   margin-left: 5vw;
-  margin-bottom: -7vh;
-  width: 20vw;
+  margin-bottom: -6vh;
+  /* width: 20vw; */
   border-radius: 10px;
   font-weight:bold;
   /* background-color: black; */
-  background: rgba(0, 0, 0, .8);
-  color: rgb(243, 77, 77);
+  background: rgba(0, 0, 0, .9);
+  color: white
 }
 .timer{
   margin-left: 5vw;
-  margin-top: -1vh;
-  width: 20vw;
-  height: 5vh;
+  /* margin-top: -1vh; */
+  /* width: 20vw; */
+  /* height: 5vh; */
   /* background-color: black; */
-  background: rgba(0, 0, 0, .6)
+  background: rgba(0, 0, 0, .8)
 }
 .timer span{
   display: inline-block;
@@ -150,7 +150,7 @@ export default {
 }
 .unit{
   margin-left: 5vw;
-  width: 20vw;
+  /* width: 20vw; */
   height: 5vh;
   /* background-color: black; */
   background: rgba(0, 0, 0, .6);
