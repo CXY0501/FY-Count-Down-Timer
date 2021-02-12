@@ -1,8 +1,12 @@
 <template>
   <div class="home">
+
   <div class="middle">
+    <div class="today">
+      <div class="Ttitle">Now is {{nowTime}} on {{nowDate}}</div>
+    </div>
     <div class="Month">
-     <div class="title">MONTH END</div>
+     <div class="title">TILL THIS MONTH END</div>
      <div class="timer">
          <div class="card1">
            <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
@@ -18,7 +22,7 @@
      </div> -->
     </div>
     <div class="Quarter">
-     <div class="title">QUARTER END</div>
+     <div class="title">TILL THIS QUARTER END</div>
      <div class="timer">
        <div class="card1">
          <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
@@ -34,7 +38,7 @@
      </div> -->
     </div>
     <div class="Year">
-     <div class="title">FISCAL YEAR END</div>
+     <div class="title">TILL THIS FISCAL YEAR END</div>
      <div class="timer">
        <div class="card1">
            <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
@@ -73,8 +77,15 @@ export default {
       endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
       endTime2: (new Date('2021-04-01 00:00:00')).getTime(),
       endTime3: (new Date('2021-07-01 00:00:00')).getTime(),
-      NextMonth: '2021-03-01'
+      NextMonth: '2021-03-01',
+      currentTime:new Date(),
+      timer:"",
+      nowDate:null,    //存放年月日变量
+      nowTime:null,   //存放时分秒变量
     }
+  },
+  created(){
+    this.timer = setInterval(this.getTime, 1000);
   },
   props:{
     path: String
@@ -88,7 +99,34 @@ export default {
     },
     configclick(){
       this.$router.replace('./config')
-    }
+    },
+    getTime(){
+      const date = new Date();
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const hour= date.getHours();
+      const minute = date.getMinutes();
+      const second = date.getSeconds();
+      const str = ''
+      if(this.hour>12) {
+        this.hour -= 12;
+        this.str = " AM";
+        }else{
+        this.str = " PM";                        
+        }
+      this.month=check(month);
+      this.day=check(day);
+      this.hour=check(hour);
+      this.minute=check(minute);
+      this.second=check(second);
+      function check(i){
+        const num = (i<10)?("0"+i) : i;
+        return num;
+      }
+      this.nowDate = this.month + "/" + this.day+"/" + year +" " ;
+      this.nowTime = this.hour + ":" + this.minute;
+      },
   },
   mounted(){
      this.$bus.$on('nextMonth',(data)=>{
@@ -101,9 +139,14 @@ export default {
   },
   watch:{
     change(){
-      // this.endTime1 = (new Date(this.NextMonth+' 00:00:00')).getTime()
+      this.today = new Date()
     }
-  }
+  },
+  beforeDestroy(){
+     if (this.timer) {
+      clearInterval(this.timer); // 在Vue实例销毁前，清除定时器
+    }
+  },
 }
 </script>
 
@@ -131,6 +174,18 @@ export default {
   /* background-color: black; */
   background: rgba(0, 0, 0, .9);
   color: white
+}
+.Ttitle{
+  margin-left: 5vw;
+  margin-bottom: 2vh;
+  /* width: 20vw; */
+  border-radius: 10px;
+  font-weight:bold;
+  /* background-color: black; */
+  background: rgba(0, 0, 0, .9);
+  color: red;
+  text-align: center;
+  font-size: 2vw;
 }
 .timer{
   margin-left: 5vw;
