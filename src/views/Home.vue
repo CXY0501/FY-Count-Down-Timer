@@ -75,9 +75,12 @@ export default {
     return{
       startTime: (new Date()).getTime(),
       endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
+      NextMonth: (new Date()).getMonth()+2,
+      // NextMonthFirstDay: '2021-'+'0'+NextMonth+' 00:00:00',
+      // endTime1: (new Date(NextMonthFirstDay)).getTime(),
       endTime2: (new Date('2021-04-01 00:00:00')).getTime(),
       endTime3: (new Date('2021-07-01 00:00:00')).getTime(),
-      NextMonth: '2021-03-01',
+      // NextMonth: '2021-03-01',
       currentTime:new Date(),
       timer:"",
       nowDate:null,    //存放年月日变量
@@ -90,6 +93,7 @@ export default {
   props:{
     path: String
   },
+
   methods:{
     countDownS_sb(x){
       // console.log(x)
@@ -109,12 +113,12 @@ export default {
       const minute = date.getMinutes();
       const second = date.getSeconds();
       const str = ''
-      if(this.hour>12) {
-        this.hour -= 12;
-        this.str = " AM";
-        }else{
-        this.str = " PM";                        
-        }
+      // if(this.hour>12) {
+      //   this.hour -= 12;
+      //   this.str = " AM";
+      //   }else{
+      //   this.str = " PM";                        
+      //   }
       this.month=check(month);
       this.day=check(day);
       this.hour=check(hour);
@@ -127,15 +131,17 @@ export default {
       this.nowDate = this.month + "/" + this.day+"/" + year +" " ;
       this.nowTime = this.hour + ":" + this.minute;
       },
+      // change(){
+      //   this.endTime1 = (new Date(this.NextMonth+' 00:00:00')).getTime()
+      // }
   },
   mounted(){
      this.$bus.$on('nextMonth',(data)=>{
         this.NextMonth = data
         this.endTime1 = (new Date(this.NextMonth+' 00:00:00')).getTime()
-        
+        this.CountDown.end = this.endTime1
       console.log(this.NextMonth)
-  }),
-  this.$forceUpdate();
+    })
   },
   watch:{
     change(){
