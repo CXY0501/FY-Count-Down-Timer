@@ -27,7 +27,7 @@
        <div class="card1">
          <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
             :dayTxt="' DAYS '" :hourTxt="' HOURS '" :minutesTxt="' MINUTES '" :secondsTxt="' SECONDS'"         
-             :startTime="startTime" :endTime="endTime2"></count-down>
+             :startTime="startTime" :endTime="NextQuarterFirstDay"></count-down>
        </div>
      </div>
      <!-- <div class="unit">
@@ -43,7 +43,7 @@
        <div class="card1">
            <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
             :dayTxt="' DAYS '" :hourTxt="' HOURS '" :minutesTxt="' MINUTES '" :secondsTxt="' SECONDS'"           
-             :startTime="startTime" :endTime="endTime3"></count-down>
+             :startTime="startTime" :endTime="NextFYFirstDay"></count-down>
        </div>
      </div>
      <!-- <div class="unit">
@@ -57,7 +57,6 @@
   <div class="config" @click="configclick">
     Configuration
   </div>
-  <div>{{NextMonthFirstDay}}</div>
   </div>
 </template>
 
@@ -75,13 +74,14 @@ export default {
   data(){
     return{
       startTime: (new Date()).getTime(),
-      endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
+      // endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
       year: (new Date()).getFullYear(),
+      CurrentMonth: (new Date()).getMonth()+1,
       NextMonth: (new Date()).getMonth()+2,
       // NextMonthFirstDay: '2021-'+'0'+NextMonth+' 00:00:00',
       // endTime1: (new Date(NextMonthFirstDay)).getTime(),
-      endTime2: (new Date('2021-04-01 00:00:00')).getTime(),
-      endTime3: (new Date('2021-07-01 00:00:00')).getTime(),
+      // endTime2: (new Date('2021-04-01 00:00:00')).getTime(),
+      // endTime3: (new Date('2021-07-01 00:00:00')).getTime(),
       // NextMonth: '2021-03-01',
       currentTime:new Date(),
       timer:"",
@@ -107,7 +107,32 @@ export default {
       }else{
         nextFirst = this.year+'-'+this.NextMonth+'-01'+' 00:00:00'
       }
-      
+      let endtime = (new Date(nextFirst)).getTime()
+      return endtime
+    },
+    NextQuarterFirstDay(){
+      let nextFirst = ''
+      if(this.CurrentMonth>=7&&this.CurrentMonth<=9){
+        nextFirst = this.year+'-10-01'+' 00:00:00'
+      }else if(this.CurrentMonth>=10&&this.CurrentMonth<=12){
+        this.year += 1
+        nextFirst = this.year+'-01-01'+' 00:00:00'
+      }else if(this.CurrentMonth>=1&&this.CurrentMonth<=3){
+        nextFirst = this.year+'-04-01'+' 00:00:00'
+      }else if(this.CurrentMonth>=4&&this.CurrentMonth<=6){
+        nextFirst = this.year+'-07-01'+' 00:00:00'
+      }
+      let endtime = (new Date(nextFirst)).getTime()
+      return endtime
+    },
+    NextFYFirstDay(){
+      let nextFirst = ''
+      if(this.CurrentMonth<7){
+        nextFirst = this.year+'-07-01'+' 00:00:00'
+      }else{
+        this.year += 1
+        nextFirst = this.year+'-07-01'+' 00:00:00'
+      }
       let endtime = (new Date(nextFirst)).getTime()
       return endtime
     } 
