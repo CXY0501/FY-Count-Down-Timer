@@ -11,7 +11,7 @@
          <div class="card1">
            <count-down v-on:start_callback="countDownS_cb(1)" v-on:end_callback="countDownE_cb(1)" 
             :dayTxt="' DAYS '" :hourTxt="' HOURS '" :minutesTxt="' MINUTES '" :secondsTxt="' SECONDS'"           
-             :startTime="startTime" :endTime="endTime1"></count-down>
+             :startTime="startTime" :endTime="NextMonthFirstDay"></count-down>
          </div>
      </div>
      <!-- <div class="unit">
@@ -57,6 +57,7 @@
   <div class="config" @click="configclick">
     Configuration
   </div>
+  <div>{{NextMonthFirstDay}}</div>
   </div>
 </template>
 
@@ -93,7 +94,14 @@ export default {
   props:{
     path: String
   },
-
+  computed:{
+    NextMonthFirstDay(){
+      let nextFirst = ''
+      nextFirst = '2021-'+'0'+this.NextMonth+'-01'+' 00:00:00'
+      let endtime = (new Date(nextFirst)).getTime()
+      return endtime
+    } 
+  },
   methods:{
     countDownS_sb(x){
       // console.log(x)
