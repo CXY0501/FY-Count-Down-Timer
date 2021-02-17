@@ -76,6 +76,7 @@ export default {
     return{
       startTime: (new Date()).getTime(),
       endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
+      year: (new Date()).getFullYear(),
       NextMonth: (new Date()).getMonth()+2,
       // NextMonthFirstDay: '2021-'+'0'+NextMonth+' 00:00:00',
       // endTime1: (new Date(NextMonthFirstDay)).getTime(),
@@ -97,7 +98,16 @@ export default {
   computed:{
     NextMonthFirstDay(){
       let nextFirst = ''
-      nextFirst = '2021-'+'0'+this.NextMonth+'-01'+' 00:00:00'
+      if(this.NextMonth<10){
+        nextFirst = this.year+'-0'+this.NextMonth+'-01'+' 00:00:00'
+      }else if(this.NextMonth>12){
+        this.year += 1,
+        this.NextMonth -= 12,
+        nextFirst = this.year+'-0'+this.NextMonth+'-01'+' 00:00:00'
+      }else{
+        nextFirst = this.year+'-'+this.NextMonth+'-01'+' 00:00:00'
+      }
+      
       let endtime = (new Date(nextFirst)).getTime()
       return endtime
     } 
