@@ -73,17 +73,15 @@ export default {
   },
   data(){
     return{
+      currentTime: new Date(),
       startTime: (new Date()).getTime(),
       // endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
       year: (new Date()).getFullYear(),
       CurrentMonth: (new Date()).getMonth()+1,
       NextMonth: (new Date()).getMonth()+2,
-      // NextMonthFirstDay: '2021-'+'0'+NextMonth+' 00:00:00',
-      // endTime1: (new Date(NextMonthFirstDay)).getTime(),
       // endTime2: (new Date('2021-04-01 00:00:00')).getTime(),
       // endTime3: (new Date('2021-07-01 00:00:00')).getTime(),
       // NextMonth: '2021-03-01',
-      currentTime:new Date(),
       timer:"",
       nowDate:null,    //存放年月日变量
       nowTime:null,   //存放时分秒变量
