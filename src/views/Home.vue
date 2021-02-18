@@ -74,11 +74,7 @@ export default {
   data(){
     return{
       currentTime: new Date(),
-      startTime: (new Date()).getTime(),
       // endTime1: (new Date('2021-03-01 00:00:00')).getTime(),
-      year: (new Date()).getFullYear(),
-      CurrentMonth: (new Date()).getMonth()+1,
-      NextMonth: (new Date()).getMonth()+2,
       // endTime2: (new Date('2021-04-01 00:00:00')).getTime(),
       // endTime3: (new Date('2021-07-01 00:00:00')).getTime(),
       // NextMonth: '2021-03-01',
@@ -94,42 +90,54 @@ export default {
     path: String
   },
   computed:{
+    startTime(){
+      return this.currentTime.getTime()
+    },
     NextMonthFirstDay(){
       let nextFirst = ''
+      let year = this.currentTime.getFullYear()
+      let CurrentMonth = this.currentTime.getMonth()+1
+      let NextMonth = this.currentTime.getMonth()+2
       if(this.NextMonth<10){
-        nextFirst = this.year+'-0'+this.NextMonth+'-01'+' 00:00:00'
+        nextFirst = year+'-0'+NextMonth+'-01'+' 00:00:00'
       }else if(this.NextMonth>12){
-        this.year += 1,
+        year += 1,
         this.NextMonth -= 12,
-        nextFirst = this.year+'-0'+this.NextMonth+'-01'+' 00:00:00'
+        nextFirst = year+'-0'+NextMonth+'-01'+' 00:00:00'
       }else{
-        nextFirst = this.year+'-'+this.NextMonth+'-01'+' 00:00:00'
+        nextFirst = year+'-'+NextMonth+'-01'+' 00:00:00'
       }
       let endtime = (new Date(nextFirst)).getTime()
       return endtime
     },
     NextQuarterFirstDay(){
       let nextFirst = ''
-      if(this.CurrentMonth>=7&&this.CurrentMonth<=9){
-        nextFirst = this.year+'-10-01'+' 00:00:00'
-      }else if(this.CurrentMonth>=10&&this.CurrentMonth<=12){
-        this.year += 1
-        nextFirst = this.year+'-01-01'+' 00:00:00'
-      }else if(this.CurrentMonth>=1&&this.CurrentMonth<=3){
-        nextFirst = this.year+'-04-01'+' 00:00:00'
-      }else if(this.CurrentMonth>=4&&this.CurrentMonth<=6){
-        nextFirst = this.year+'-07-01'+' 00:00:00'
+      let year = this.currentTime.getFullYear()
+      let CurrentMonth = this.currentTime.getMonth()+1
+      let NextMonth = this.currentTime.getMonth()+2
+      if(CurrentMonth>=7&&CurrentMonth<=9){
+        nextFirst = year+'-10-01'+' 00:00:00'
+      }else if(CurrentMonth>=10&&CurrentMonth<=12){
+        year += 1
+        nextFirst = year+'-01-01'+' 00:00:00'
+      }else if(CurrentMonth>=1&&CurrentMonth<=3){
+        nextFirst = year+'-04-01'+' 00:00:00'
+      }else if(CurrentMonth>=4&&CurrentMonth<=6){
+        nextFirst = year+'-07-01'+' 00:00:00'
       }
       let endtime = (new Date(nextFirst)).getTime()
       return endtime
     },
     NextFYFirstDay(){
       let nextFirst = ''
-      if(this.CurrentMonth<7){
-        nextFirst = this.year+'-07-01'+' 00:00:00'
+      let year = this.currentTime.getFullYear()
+      let CurrentMonth = this.currentTime.getMonth()+1
+      let NextMonth = this.currentTime.getMonth()+2
+      if(CurrentMonth<7){
+        nextFirst = year+'-07-01'+' 00:00:00'
       }else{
-        this.year += 1
-        nextFirst = this.year+'-07-01'+' 00:00:00'
+        year += 1
+        nextFirst = year+'-07-01'+' 00:00:00'
       }
       let endtime = (new Date(nextFirst)).getTime()
       return endtime
